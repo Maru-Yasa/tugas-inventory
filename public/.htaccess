@@ -1,0 +1,20 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Set base directory if the project is in a subfolder
+# RewriteBase /your-subfolder/
+
+# Send all requests to index.php if the file or directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Prevent access to sensitive files
+<FilesMatch "\.(env|htaccess|git|json|lock|yml|yaml|xml|md)$">
+    Require all denied
+</FilesMatch>
+
+# Protect composer files
+<FilesMatch "composer\.(json|lock)">
+    Require all denied
+</FilesMatch>
