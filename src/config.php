@@ -3,7 +3,7 @@
 return [
     'database' => [
         'type' => 'pgsql',
-        'host' => 'db',
+        'host' => 'localhost',
         'database' => 'inventory-tugas',
         'username' => 'root',
         'password' => 'root'

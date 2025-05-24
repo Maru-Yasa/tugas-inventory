@@ -2,3 +2,4 @@ vendor
 log
 db
 public/cache
+deploy.php
