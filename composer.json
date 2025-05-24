@@ -1,0 +1,19 @@
+{
+    "name": "maru/inventory",
+    "autoload": {
+        "psr-4": {
+            "Maru\\Inventory\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maru-yasa",
+            "email": "marufilyasa13@gmail.com"
+        }
+    ],
+    "require": {
+        "duncan3dc/blade": "^4.16",
+        "catfan/medoo": "^2.2",
+        "fakerphp/faker": "^1.24"
+    }
+}

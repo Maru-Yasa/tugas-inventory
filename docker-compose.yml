@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16
+    container_name: tugas-inventory.postgres_db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: inventory-tugas
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: ./infra/web
+      dockerfile: Dockerfile
+    container_name: tugas-inventory.apache_php
+    volumes:
+      - .:/var/www/html
+      - ./log:/var/log
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - DEBUG="1"
+      - DOCUMENT_ROOT=/public
+      - PHP_DISPLAY_ERRORS="1"
+      - DEFAULT_LOG_PATH=/var/log/container.txt
+
+
+volumes:
+  pgdata:

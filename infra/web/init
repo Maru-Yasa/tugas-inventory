@@ -1,0 +1,5 @@
+
+#!/usr/bin/bash
+
+echo "INIT WEB"
+cd /var/www/html/bin && php migrate.php
